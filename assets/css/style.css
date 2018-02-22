@@ -1,3 +1,25 @@
 body {
     background-image: url("../images/congruent_pentagon.png");
 }
+
+h1, .panel-heading {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.panel-body, .lead {
+    font-family: 'Neuton', serif;
+}
+
+#crystalButton {
+    height: 100px;
+    width: 100px;
+}
+
+.gameMatch {
+    background-image: url("../images/confectionary.png");
+}
+
+.winCounter {
+    margin-top: 2%;
+    
+}
