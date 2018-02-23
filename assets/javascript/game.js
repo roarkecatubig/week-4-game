@@ -37,7 +37,6 @@ function objectiveSelector() {
     min = Math.floor(19);
     gameObjective = Math.floor(Math.random() * (max - min)) + min;
     document.querySelector("#gameMatch").innerHTML = gameObjective;
-    console.log("Random number: " + gameObjective);
     crystalValueSelector()
 }
 
@@ -49,45 +48,36 @@ function crystalValueSelector() {
         crystalBag[property1] = Math.floor(Math.random() * (max - min)) + min;
     }
 
-    console.log(crystalBag);
 }
 
 // Monitors the clicks of the user and updates total score based on crystal button they click. 
 function crystalClicks() {
     $(".redCrystal").on("click", function() {
         additionArray.push(crystalBag.Red);
-        console.log(additionArray);
         totalScore = additionArray.reduce(addArray);
         document.querySelector("#totalScore").innerHTML = totalScore;
         winCondition(totalScore);
-        console.log(totalScore);
     });
 
     $(".blueCrystal").on("click", function() {
         additionArray.push(crystalBag.Blue);
-        console.log(additionArray);
         totalScore = additionArray.reduce(addArray);
         document.querySelector("#totalScore").innerHTML = totalScore;
         winCondition(totalScore);
-        console.log(totalScore);
     });
 
     $(".yellowCrystal").on("click", function() {
         additionArray.push(crystalBag.Yellow);
-        console.log(additionArray);
         totalScore = additionArray.reduce(addArray);
         document.querySelector("#totalScore").innerHTML = totalScore;
         winCondition(totalScore);
-        console.log(totalScore);
     });
 
     $(".greenCrystal").on("click", function() {
         additionArray.push(crystalBag.Green);
-        console.log(additionArray);
         totalScore = additionArray.reduce(addArray);
         document.querySelector("#totalScore").innerHTML = totalScore;
         winCondition(totalScore);
-        console.log(totalScore);
     });
 }
 
@@ -100,8 +90,7 @@ function addArray(total, num) {
 function winCondition(total) {    
     total = totalScore
     if (totalScore === gameObjective) {
-        document.querySelector("#gamePrompts").innerHTML = "GAME OVER YOU WIN!";
-        console.log("GAME OVER YOU WIN! Click button to Start New Game")
+        document.querySelector("#gamePrompts").innerHTML = "GAME OVER YOU WIN! Keep going with the next number or click button to Start New Game";
         winsCount += 1
         document.querySelector("#wins").innerHTML = winsCount;
         initGame()
@@ -110,7 +99,6 @@ function winCondition(total) {
 
     else if (totalScore > gameObjective) {
         document.querySelector("#gamePrompts").innerHTML = "GAME OVER YOU LOSE! Click button to Start New Game";
-        console.log("GAME OVER YOU LOSE!")
         lossesCount += 1
         document.querySelector("#losses").innerHTML = lossesCount;
         initGame()
